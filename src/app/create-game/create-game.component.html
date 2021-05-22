@@ -1,0 +1,34 @@
+<form [formGroup]="gameForm" (ngSubmit)="addGame()">
+    <div>
+        <h1>Ping Pong Registration</h1>
+    </div>
+    <div class="form-group row">
+        <label for="inputDate" class="col-sm-2 col-form-label">Date</label>
+        <div class="col-sm-2">
+            <input type="date" class="form-control" id="inputDate" placeholder="Date" formControlName="gameDate"> 
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="inputPlayer1" class="col-sm-2 col-form-label">Player 1</label>
+        <div class="col-sm-2">
+            <input type="text" class="form-control" id="inputPlayer1" placeholder="Player 1" formControlName="player1" (input)="enterPlayerName('1',$event)">
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="inputPlayer2" class="col-sm-2 col-form-label">Player 2</label>
+        <div class="col-sm-2">
+            <input type="text" class="form-control" id="inputPlayer2" placeholder="Player 2" formControlName="player2"  (input)="enterPlayerName('2',$event)">
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="inputPlayer2" class="col-sm-2 col-form-label">Game Name</label>
+        <div class="col-sm-2">
+            <p>{{player1}} vs {{player2}}</p>
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="col-sm-2">
+            <button type="submit" class="btn btn-primary mb-2">Add Game</button>
+        </div>
+    </div>
+</form>

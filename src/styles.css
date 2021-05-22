@@ -1,0 +1,13 @@
+/* You can add global styles to this file, and also import other style files */
+body{
+	margin: 0;
+	padding: 0;
+	/* background: blueviolet; */
+	/* background-image: linear-gradient(rgb(165, 65, 165),rgb(134, 49, 214)); */
+    /* background: url(assets/pattern2.jpeg) no-repeat center center / cover; */
+    /* min-height: 100vh; */
+	/* min-width: 100%; */
+	/* background-image: url(); */
+	/* background-size: cover; */
+	font-family: sans-serif; 
+}
