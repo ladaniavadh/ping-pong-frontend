@@ -1,30 +1,23 @@
 <table class="table">
-    <thead>
-      <tr>
-        <th scope="col">#</th>
-        <th scope="col">First</th>
-        <th scope="col">Last</th>
-        <th scope="col">Handle</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <th scope="row">1</th>
-        <td>Mark</td>
-        <td>Otto</td>
-        <td>@mdo</td>
-      </tr>
-      <tr>
-        <th scope="row">2</th>
-        <td>Jacob</td>
-        <td>Thornton</td>
-        <td>@fat</td>
-      </tr>
-      <tr>
-        <th scope="row">3</th>
-        <td>Larry</td>
-        <td>the Bird</td>
-        <td>@twitter</td>
-      </tr>
-    </tbody>
-  </table>
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Game Name</th>
+      <th scope="col">Player-1 (Score)</th>
+      <th scope="col">Player-2 (Score)</th>
+    </tr>
+  </thead>
+  <tbody *ngIf="allGames && allGames.length > 0">
+    <tr *ngFor="let game of allGames">
+      <th scope="row">{{game.id}}</th>
+      <td>{{game.game_name}}</td>
+      <td>{{game.player_one}} ({{game.score_one ? game.score_one : 'N/A'}})</td>
+      <td>{{game.player_two}} ({{game.score_two ? game.score_two : 'N/A'}})</td>
+    </tr>
+  </tbody>
+  <tbody *ngIf="allGames && allGames.length === 0">
+    <tr>
+      <td colspan="4" style="text-align: center;">No Data Available</td>
+    </tr>
+  </tbody>
+</table>

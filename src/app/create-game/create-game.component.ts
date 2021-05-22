@@ -21,9 +21,8 @@ export class CreateGameComponent implements OnInit {
 
   ngOnInit(): void {
     this.gameForm = this.formBuilder.group({
-      gameDate: [''],
-      player1: ['', [Validators.required]],
-      player2: ['', [Validators.required]],
+      player_one: ['', [Validators.required]],
+      player_two: ['', [Validators.required]],
     });
   }
 
@@ -41,15 +40,16 @@ export class CreateGameComponent implements OnInit {
     this.gameSubmit = true
     if (this.gameForm.valid) {
       const reqBody = {
-        date: this.gameForm.value.gameDate,
-        player1: this.gameForm.value.player1,
-        player2: this.gameForm.value.player2,
+        player_one: this.gameForm.value.player_one,
+        player_two: this.gameForm.value.player_two,
       };
       this.httpService
-        .postHttp('add-game', reqBody)
+        .postHttp('create', reqBody)
         .toPromise()
         .then((res: any) => {
-          console.log(res);
+          if (res.status_code == "200") {
+            alert('insert successfully.')
+          }
         })
     }
 

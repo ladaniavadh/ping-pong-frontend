@@ -5,25 +5,24 @@
     <div class="form-group row">
         <label for="inputDate" class="col-sm-2 col-form-label">Select Game</label>
         <div class="col-sm-2">
-            <!-- <input type="date" class="form-control" id="inputDate" placeholder="Date" formControlName="gameDate">  -->
-            <select class="form-control">
-                <option>1</option>
-                <option>1</option>
-                <option>1</option>
-                <option>1</option>
+            <select class="form-control" formControlName="selectedGame" (change)="onChange($event)">
+                <option disabled selected>Select Team</option>
+                <option [value]="game.id" *ngFor="let game of pendingGames">{{game.game_name}}</option>
             </select>
         </div>
     </div>
     <div class="form-group row">
-        <label for="inputPlayer1" class="col-sm-2 col-form-label">Player 1</label>
+        <label for="inputPlayer1" class="col-sm-2 col-form-label">{{selectedGame.player_one ? selectedGame.player_one : 'Player 1'}}</label>
         <div class="col-sm-2">
-            <input type="text" class="form-control" id="inputPlayer1" placeholder="Player 1" formControlName="player1">
+            <input type="text" class="form-control" id="inputPlayer1" (keypress)="numberOnly($event)" placeholder="{{selectedGame.player_one ? selectedGame.player_one : 'Player 1'}}"
+                formControlName="score_one">
         </div>
     </div>
     <div class="form-group row">
-        <label for="inputPlayer2" class="col-sm-2 col-form-label">Player 2</label>
+        <label for="inputPlayer2" class="col-sm-2 col-form-label">{{selectedGame.player_two ? selectedGame.player_two : 'Player 2'}}</label>
         <div class="col-sm-2">
-            <input type="text" class="form-control" id="inputPlayer2" placeholder="Player 2" formControlName="player1">
+            <input type="text" class="form-control" id="inputPlayer2" (keypress)="numberOnly($event)" placeholder="{{selectedGame.player_two ? selectedGame.player_two : 'Player 2'}}"
+                formControlName="score_two">
         </div>
     </div>
     <div class="form-group row">

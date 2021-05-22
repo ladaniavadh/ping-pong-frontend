@@ -19,10 +19,11 @@ export class HistoryComponent implements OnInit {
 
   getGameHistory() {
     this.httpService
-      .getHttp('get-all-game')
+      .getHttp('allGames')
       .toPromise()
       .then((res: any) => {
         console.log(res);
+        this.allGames = res.data;
       })
   }
 

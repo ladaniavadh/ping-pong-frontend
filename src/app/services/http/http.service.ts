@@ -11,7 +11,7 @@ export class HttpService {
     private http: HttpClient,
 
   ) { }
-  baseURL = 'http://codeflashinfotech.com/';
+  baseURL = 'http://35.207.233.246:8082/api/v1/game/';
   headers = new HttpHeaders({
     'Content-Type': 'application/json; charset=utf-8'
   });
